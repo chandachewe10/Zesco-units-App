@@ -32,6 +32,9 @@ const thirdPurchase = () => {
         <View style={styles.ViewInput}>
           <TextInput keyboardType='numeric' onChangeText={setAmount} placeholder='Enter Amount' placeholderTextColor='white' style={styles.amount_input}/>
         </View>
+
+
+        
         <View style={styles.FirstPurchase}>
         <Button
   onPress={firstPurchase}
@@ -40,7 +43,7 @@ const thirdPurchase = () => {
   
 />
         </View>
-        <View style={styles.FirstPurchase}>
+        <View style={styles.SecondPurchase}>
         <Button
   onPress={secondPurchase}
   title="Second Purchase"
@@ -48,7 +51,7 @@ const thirdPurchase = () => {
   
 />
         </View>
-        <View style={styles.FirstPurchase}>
+        <View style={styles.ThirdPurchase}>
         <Button
   onPress={thirdPurchase}
   title="Third Purchase"
@@ -56,6 +59,17 @@ const thirdPurchase = () => {
   
 />
         </View>
+        <View>
+          <Text style={styles.title}>RESULTS</Text>
+        </View>
+
+<View style={styles.ResultsView}>
+<Text style={{color:'white',fontSize:18,fontStyle:'italic',fontWeight:'bold'}}>Amount After Tax: 0.00</Text>
+<Text style={{color:'white',fontSize:18,fontStyle:'italic',fontWeight:'bold'}}>Units (kWh): 0.00</Text>
+<Text style={{color:'white',fontSize:18,fontStyle:'italic',fontWeight:'bold'}}>VAT @16%: 0.00</Text>
+<Text style={{color:'white',fontSize:18,fontStyle:'italic',fontWeight:'bold'}}>CUSTOMS @3%: 0.00</Text>   
+</View>
+
         </SafeAreaView> 
     </ImageBackground>
     
@@ -107,5 +121,25 @@ const styles = StyleSheet.create({
   elevation:15,
   borderRadius: 100, 
     
-  }
+  },
+  SecondPurchase:{
+    marginTop:8,
+    width:'90%',
+    alignSelf: "center",
+    elevation:15,
+    borderRadius: 100, 
+      
+    },
+    ThirdPurchase:{
+      marginTop:8,
+      width:'90%',
+      alignSelf: "center",
+      elevation:15,
+      borderRadius: 100, 
+     marginBottom:25   
+      },
+      ResultsView:{
+        margin:10
+      }
+     
 });
