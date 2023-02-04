@@ -14,6 +14,16 @@ export default function App() {
  
 
  const firstPurchase = () => {
+
+  // Check if the amount is null or 0
+  if(amount==='' || amount==0){
+    Alert.alert('Invalid Amount', 'Please enter amount greater than 0');
+  }
+  
+
+
+
+
   let amount_value = parseFloat(amount);
   let vat_tax = (parseFloat(amount)*0.16).toFixed(2);
   let customs_tax = (parseFloat(amount)*0.03).toFixed(2);
@@ -53,6 +63,10 @@ export default function App() {
 
 
  const secondPurchase = () => {
+  // Check if the amount is null or 0
+  if(amount==='' || amount==0){
+    Alert.alert('Invalid Amount', 'Please enter amount greater than 0');
+  }
 
   let amount_value = parseFloat(amount);
   let vat_tax = (parseFloat(amount)*0.16).toFixed(2);
@@ -81,6 +95,11 @@ export default function App() {
 
 
 const thirdPurchase = () => {
+  // Check if the amount is null or 0
+  if(amount==='' || amount==0){
+    Alert.alert('Invalid Amount', 'Please enter amount greater than 0');
+  }
+  
   let amount_value = parseFloat(amount);
   let vat_tax = (parseFloat(amount)*0.16).toFixed(2);
   let customs_tax = (parseFloat(amount)*0.03).toFixed(2);
