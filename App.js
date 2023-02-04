@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, SafeAreaView, StyleSheet, Text, View,Image, TextInput } from 'react-native';
+import { ImageBackground, SafeAreaView, StyleSheet, Text, View,Image, TextInput, Button, Alert } from 'react-native';
 
 export default function App() {
 
@@ -7,6 +7,15 @@ export default function App() {
  
  const [amount,setAmount] = React.useState('Enter Amount e.g 200');
 
+ const firstPurchase = () => {
+
+ }
+ const secondPurchase = () => {
+
+}
+const thirdPurchase = () => {
+
+}
 
 
 
@@ -23,8 +32,29 @@ export default function App() {
         <View style={styles.ViewInput}>
           <TextInput keyboardType='numeric' onChangeText={setAmount} placeholder='Enter Amount' placeholderTextColor='white' style={styles.amount_input}/>
         </View>
-        <View style={styles.ViewInput}>
-          <Text>The amount entered is {amount}</Text>
+        <View style={styles.FirstPurchase}>
+        <Button
+  onPress={firstPurchase}
+  title="First Purchase"
+  color="#228b22"
+  
+/>
+        </View>
+        <View style={styles.FirstPurchase}>
+        <Button
+  onPress={secondPurchase}
+  title="Second Purchase"
+  color="#1e90ff"
+  
+/>
+        </View>
+        <View style={styles.FirstPurchase}>
+        <Button
+  onPress={thirdPurchase}
+  title="Third Purchase"
+  color="#f194ff"
+  
+/>
         </View>
         </SafeAreaView> 
     </ImageBackground>
@@ -69,5 +99,13 @@ const styles = StyleSheet.create({
     
     alignItems:'center'
 
+  },
+  FirstPurchase:{
+  marginTop:25,
+  width:'90%',
+  alignSelf: "center",
+  elevation:15,
+  borderRadius: 100, 
+    
   }
 });
