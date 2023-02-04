@@ -54,9 +54,46 @@ export default function App() {
 
  const secondPurchase = () => {
 
+  let amount_value = parseFloat(amount);
+  let vat_tax = (parseFloat(amount)*0.16).toFixed(2);
+  let customs_tax = (parseFloat(amount)*0.03).toFixed(2);
+  let totalTax = (parseFloat((vat_tax)) + parseFloat((customs_tax)));
+  let amountAfterTax = (parseFloat(amount_value) - parseFloat(totalTax)).toFixed(2);
+ // {setamountAfterTax(amount)}
+  setamountAfterTax("Amount after Deductions: K"+parseFloat(amountAfterTax))
+  setvat_tax("VAT: K"+vat_tax)
+  setcustoms_tax("Customs: K"+customs_tax)
+  
+  
+  if (amountAfterTax >= 1 && amountAfterTax <= 201) {
+    let units = ((amount_value) / (1.01)).toFixed(2)+" kWh";
+    setunits("Units :"+units)
+  } else {
+    //
+    let units = (((amount_value-203) / (2.31)) + 201).toFixed(2)+" kWh";
+    setunits("Units :"+units);
+  }
+   
+ 
+  
 }
-const thirdPurchase = () => {
 
+
+
+const thirdPurchase = () => {
+  let amount_value = parseFloat(amount);
+  let vat_tax = (parseFloat(amount)*0.16).toFixed(2);
+  let customs_tax = (parseFloat(amount)*0.03).toFixed(2);
+  let totalTax = (parseFloat((vat_tax)) + parseFloat((customs_tax)));
+  let amountAfterTax = (parseFloat(amount_value) - parseFloat(totalTax)).toFixed(2);
+ // {setamountAfterTax(amount)}
+  setamountAfterTax("Amount after Deductions: K"+parseFloat(amountAfterTax))
+  setvat_tax("VAT: K"+vat_tax)
+  setcustoms_tax("Customs: K"+customs_tax)
+  let R3bandPerUnit = 2.31;
+  let units = (amount_value / R3bandPerUnit).toFixed(2)+" kWh";
+  setunits("Units :"+units);
+  
 }
 
 
