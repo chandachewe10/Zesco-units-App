@@ -6,10 +6,52 @@ export default function App() {
 
  
  const [amount,setAmount] = React.useState('Enter Amount e.g 200');
+ const [amountAfterTax ,setamountAfterTax] = React.useState('K0.00');
+ const [vat_tax ,setvat_tax] = React.useState('K0.00');
+ const [customs_tax ,setcustoms_tax] = React.useState('K0.00');
+ const [units ,setunits] = React.useState('kWh 0.00');
+ 
+ 
 
  const firstPurchase = () => {
+  let amount_value = parseFloat(amount);
+  let vat_tax = (parseFloat(amount)*0.16).toFixed(2);
+  let customs_tax = (parseFloat(amount)*0.03).toFixed(2);
+  let totalTax = (parseFloat((vat_tax)) + parseFloat((customs_tax)));
+  let amountAfterTax = (parseFloat(amount_value) - parseFloat(totalTax)).toFixed(2);
+ // {setamountAfterTax(amount)}
+  setamountAfterTax("Amount after Deductions: K"+parseFloat(amountAfterTax))
+  setvat_tax("VAT: K"+vat_tax)
+  setcustoms_tax("Customs: K"+customs_tax)
+  
+  
+  if (amountAfterTax <= 47) {
+    let units = (amount_value / 0.47).toFixed(2);
+    setunits("Units :"+units)
+  } else if (amountAfterTax >= 48 && amountAfterTax <= 217) {
+
+   let R1units = 100;
+    let units = (((amount_value - 55.93) / (1.2 * 0.85)) + R1units).toFixed(2)+" kWh";
+    setunits("Units :"+units)
+  } else {
+   let R1units = 100;
+
+   let R2units = 200;
+
+   let R3units = ((amount_value - 258.23) / (1.2 * 1.94));
+
+  let units = (R1units + R2units + R3units).toFixed(2)+" kWh";
+  setunits("Units :"+units)
+  }
+
+
+
 
  }
+
+
+
+
  const secondPurchase = () => {
 
 }
@@ -32,6 +74,7 @@ const thirdPurchase = () => {
         </View>
         <View style={styles.ViewInput}>
           <TextInput keyboardType='numeric' onChangeText={setAmount} placeholder='Enter Amount' placeholderTextColor='white' style={styles.amount_input}/>
+       
         </View>
 
 
@@ -55,7 +98,7 @@ const thirdPurchase = () => {
         <View style={styles.ThirdPurchase}>
         <Button
   onPress={thirdPurchase}
-  title="Third Purchase"
+  title="Third(+) Purchase"
   color="#f194ff"
   
 />
@@ -65,10 +108,10 @@ const thirdPurchase = () => {
         </View>
 
 <View style={styles.ResultsView}>
-  <TextInput placeholderTextColor='white' editable={false} placeholder='Amount After Tax' style={styles.textInput}/>
-  <TextInput placeholderTextColor='white' editable={false} placeholder='Units (kWh)' style={styles.textInput}/>
-  <TextInput placeholderTextColor='white' editable={false} placeholder='VAT' style={styles.textInput}/>
-  <TextInput placeholderTextColor='white' editable={false} placeholder='Customs Duty' style={styles.textInput}/>
+  <TextInput placeholderTextColor='white' editable={false} value={amountAfterTax.toString()} style={styles.textInput}/>
+  <TextInput placeholderTextColor='white' editable={false} value={units.toString()} style={styles.textInput}/>
+  <TextInput placeholderTextColor='white' editable={false} value={vat_tax.toString()} style={styles.textInput}/>
+  <TextInput placeholderTextColor='white' editable={false} value={customs_tax.toString()} style={styles.textInput}/>
 
 </View>
 </ScrollView>
@@ -150,7 +193,7 @@ const styles = StyleSheet.create({
         borderBottomColor:'white',
         margin:5,
         marginRight:50,
-    
+        color: 'white',
         borderBottomColor: 'white', // Add this to specify bottom border color
         borderBottomWidth: 2     // Add this to specify bottom border thickness
     }
