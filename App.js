@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, SafeAreaView, StyleSheet, Text, View,Image, TextInput, Button, Alert } from 'react-native';
+import { ImageBackground, SafeAreaView, StyleSheet, Text, View,Image, TextInput, Button, Alert, ScrollView } from 'react-native';
 
 export default function App() {
 
@@ -23,6 +23,7 @@ const thirdPurchase = () => {
     
     <ImageBackground style={styles.background_image} source={require('./assets/AppImages/background_image.jpg')} >
       <SafeAreaView>
+      <ScrollView style={styles.scrollView}>
         <View style={styles.ViewLogo}>
           <Image style={styles.AppLogo} source={require('./assets/AppImages/Elogo.png')}/>
         </View>
@@ -64,12 +65,13 @@ const thirdPurchase = () => {
         </View>
 
 <View style={styles.ResultsView}>
-<Text style={{color:'white',fontSize:18,fontStyle:'italic',fontWeight:'bold'}}>Amount After Tax: 0.00</Text>
-<Text style={{color:'white',fontSize:18,fontStyle:'italic',fontWeight:'bold'}}>Units (kWh): 0.00</Text>
-<Text style={{color:'white',fontSize:18,fontStyle:'italic',fontWeight:'bold'}}>VAT @16%: 0.00</Text>
-<Text style={{color:'white',fontSize:18,fontStyle:'italic',fontWeight:'bold'}}>CUSTOMS @3%: 0.00</Text>   
-</View>
+  <TextInput placeholderTextColor='white' placeholder='Amount After Tax' style={styles.textInput}/>
+  <TextInput placeholderTextColor='white' placeholder='Units (kWh)' style={styles.textInput}/>
+  <TextInput placeholderTextColor='white' placeholder='VAT' style={styles.textInput}/>
+  <TextInput placeholderTextColor='white' placeholder='Customs Duty' style={styles.textInput}/>
 
+</View>
+</ScrollView>
         </SafeAreaView> 
     </ImageBackground>
     
@@ -140,6 +142,17 @@ const styles = StyleSheet.create({
       },
       ResultsView:{
         margin:10
-      }
+      },
+      textInput: {
+       
+        padding: 10,
+        
+        borderBottomColor:'white',
+        margin:5,
+        marginRight:50,
+    
+        borderBottomColor: 'white', // Add this to specify bottom border color
+        borderBottomWidth: 2     // Add this to specify bottom border thickness
+    }
      
 });
