@@ -65,10 +65,10 @@ const thirdPurchase = () => {
         </View>
 
 <View style={styles.ResultsView}>
-  <TextInput placeholderTextColor='white' placeholder='Amount After Tax' style={styles.textInput}/>
-  <TextInput placeholderTextColor='white' placeholder='Units (kWh)' style={styles.textInput}/>
-  <TextInput placeholderTextColor='white' placeholder='VAT' style={styles.textInput}/>
-  <TextInput placeholderTextColor='white' placeholder='Customs Duty' style={styles.textInput}/>
+  <TextInput placeholderTextColor='white' editable={false} placeholder='Amount After Tax' style={styles.textInput}/>
+  <TextInput placeholderTextColor='white' editable={false} placeholder='Units (kWh)' style={styles.textInput}/>
+  <TextInput placeholderTextColor='white' editable={false} placeholder='VAT' style={styles.textInput}/>
+  <TextInput placeholderTextColor='white' editable={false} placeholder='Customs Duty' style={styles.textInput}/>
 
 </View>
 </ScrollView>
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
   ViewLogo:{
     alignItems:'center',
-    marginTop:100
+    marginTop:50
   },
   title:{
     fontSize:28,
