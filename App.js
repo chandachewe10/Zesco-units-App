@@ -1,6 +1,7 @@
 import React from 'react';
 import { ImageBackground, SafeAreaView, StyleSheet, Text, View,Image, TextInput, Button, Alert, ScrollView } from 'react-native';
-
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 export default function App() {
 
 
@@ -118,7 +119,7 @@ const thirdPurchase = () => {
 
 
   return (
-    
+    <NavigationContainer>
     <ImageBackground style={styles.background_image} source={require('./assets/AppImages/background_image.jpg')} >
       <SafeAreaView>
       <ScrollView style={styles.scrollView}>
@@ -173,7 +174,7 @@ const thirdPurchase = () => {
 </ScrollView>
         </SafeAreaView> 
     </ImageBackground>
-    
+    </NavigationContainer>
   );
 }
 
