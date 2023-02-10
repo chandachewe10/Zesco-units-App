@@ -27,9 +27,9 @@ function DrawerContent(props) {
 
 
  
-<View style={{marginLeft:10,justifyContent: 'flex-end'}}>
+<View style={{marginLeft:20,flexDirection:'row',marginTop:15}}>
 <FontAwesome5 name="user-shield" size={24} color="black" />
-    <Text >Author </Text>
+    <Text style={{marginLeft:20}} >Author </Text>
  </View>
      </DrawerContentScrollView>  
      </View>
