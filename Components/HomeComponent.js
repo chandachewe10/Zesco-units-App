@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, SafeAreaView, StyleSheet, Text, View,Image, TextInput, Button, Alert, ScrollView } from 'react-native';
+import { ImageBackground, SafeAreaView, Text, View,Image, TextInput, Button, Alert, ScrollView } from 'react-native';
 import styles from '../assets/AppStyles';
 
 

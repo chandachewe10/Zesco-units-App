@@ -7,6 +7,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { MaterialIcons } from '@expo/vector-icons';
 import DrawerContent from './Components/DrawerContent';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Guidance from './Components/Guidance';
 
 
 
@@ -41,7 +42,7 @@ export default function App() {
             <Ionicons name="ios-home-outline" size={24} color="black" />
           ),
        }}/>
-        <Drawer.Screen name="Guidance" component={NotificationsScreen} 
+        <Drawer.Screen name="Guidance" component={Guidance} 
        options={{
        
         drawerIcon: ({focused, size}) => (
